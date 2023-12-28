@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "outDir": "./lib",
+      "lib": ["ESNext", "DOM"],
+      "declaration": true,
+      "strict": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "paths": {
+        "qulacs-wasm": ["./submodules/qulacs-wasm"]
+      }
+    },
+    "files": [
+        "./typings/ModuleQulacsWasm.d.ts",
+        "./typings/emscriptem-types.d.ts"
+    ],
+    "include": [
+      "./src-ts/**/*"
+    ]
+}

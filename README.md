@@ -4,6 +4,5 @@
 
 - qulacs-wasmをcloneし、ソースコードからビルドします
 - qulacs-wasmと同じディレクトリにこのリポジトリをcloneします
-- npm install && npm run buildを実行します
-- node ./sample/index.jsを実行します
-
+- `$ npm install && npm run build` を実行します
+- `$ npm run start` を実行します

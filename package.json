@@ -1,0 +1,37 @@
+{
+  "name": "qulacs-wasm-sample",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run build:tsc && npm run build:emscripten",
+    "build:tsc": "tsc -p .",
+    "build:emscripten": "mkdir -p lib-cpp/ && npm run build:emscripten:em++ && npm run build:emscripten:cp",
+    "build:emscripten:em++": "em++ -O2 -I ../qulacs-wasm/submodules/boost -I ../qulacs-wasm/submodules/qulacs/include -L ../qulacs/wasm/submodules/qulacs/lib -o ./lib-cpp/module.js ./src-cpp/MyModule.cpp -s MODULARIZE=1 -s 'EXPORT_NAME=\"ModuleQulacsWasm\"' --bind -s DISABLE_EXCEPTION_CATCHING=0",
+    "build:emscripten:cp": "cpx \"./lib-cpp/**\" \"./lib/wasm/\" --clean"
+  },
+  "keywords": [
+    "WebAssembly",
+    "qulacs",
+    "quantum"
+  ],
+  "author": "kamakiri01",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@types/emscripten": "^1.39.6",
+    "@types/node": "^18.11.3",
+    "cpx": "^1.5.0",
+    "typescript": "^4.8.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamakiri01/qulacs-wasm-simulator-client.git"
+  }
+}
